@@ -22,11 +22,11 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it 'attacks player and gives damages' do
-      expect(jake).to receive(:dmg)
-      shaun.attack(jake)
-    end
-  end
+  # describe '#attack' do
+  #   it 'attacks player and gives damages' do
+  #     expect(jake).to receive(:dmg)
+  #     shaun.attack(jake)
+  #   end
+  # end
 
 end
