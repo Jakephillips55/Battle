@@ -1,11 +1,7 @@
-<h1><%= @game.player1.name %> vs. <%= @game.player2.name %><h1>
-
-<%= @game.current_turn.name %>'s turn
-
-<h2><%= @game.player1.name %>: 100HP <% @game.player1.hp %><h2>
-<h2><%= @game.player2.name %>: 100HP <% @game.player2.hp %><h2>
-
-<a href="/attack"> Attack </a>
+<%= @game.player1.name %> vs <%= @game.player2.name %><br>
+<%= @game.player2.name %>: <%= @game.player2.hp %>HP<br>
+It is <%= @game.current_turn.name%>'s turn.<br>
+<a href= '/attack'>Attack!</a>
 
 <!-- <input onclick="this.value='Confirm'" type="button" value="Player 1 Attack!" id="myButton1" />
 <input onclick="this.value='Confirm'" type="button" value="Player 2 Attack!" id="myButton1" /> -->
