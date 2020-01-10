@@ -1,5 +1,10 @@
+
 <%=@game.player1.name%> attacked <%=@game.player2.name%><br>
-'<%=@game.player2.name%>: <%= @game.player2.hp%>HP'<br>
+
+<%=@game.player2.name%>: <%= @game.player2.hp%>HP<br>
 
 It is <%= @game.player2.name %>'s turn.
-<a href="/play">OK</a>
+<!-- <a href="/play">OK</a> -->
+<form action ="/play" >
+  <input type="submit" value="Attack back!">
+  </form>

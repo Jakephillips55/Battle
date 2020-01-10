@@ -13,7 +13,7 @@ describe Player do
 
   describe '#hp' do
     it 'checks the default hp' do
-      expect(Player::DEFAULT_HP).to eq 100
+      expect(Player::DEFAULT_HP).to eq 110
     end
 
   describe '#dmg'
