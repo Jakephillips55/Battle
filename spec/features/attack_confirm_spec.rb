@@ -11,8 +11,8 @@ describe Battle, type: :feature do
     scenario 'reduce Player 2 HP by 10' do
       sign_in_and_play
       click_link 'Attack'
-      # expect(page).not_to have_content 'Shaun: 100HP'
-      # expect(page).to have_content 'Shaun: 90HP'
+      expect(page).not_to have_content 'Shaun: 100HP'
+      expect(page).to have_content 'Shaun: 90HP'
     end
 
   end

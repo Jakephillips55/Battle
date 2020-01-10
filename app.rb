@@ -23,16 +23,17 @@ class Battle < Sinatra::Base
   get '/attack' do
     @game = $game
     @game.attack(@game.player2)
+    @game.switch_turns
     erb :attack
   end
-
-  get '/confirm_attack' do
-    @player_1_name = $player_1.name
-    @player_2_name = $player_2.name
-    @player_1_hp = $player_1.dmg
-    @player_2_hp = $player_2.dmg
-    erb :confirm_attack
-  end
+  #
+  # get '/confirm_attack' do
+  #  @player_1_name = $player_1.name
+  #  @player_2_name = $player_2.name
+  #   @player_1_hp = $player_1.dmg
+  #   @player_2_hp = $player_2.dmg
+  #   erb :confirm_attack
+  # end
 
   run! if app_file ==$0
 end
