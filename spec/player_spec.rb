@@ -1,32 +1,20 @@
 require 'player'
 
 describe Player do
-  subject(:shaun) {Player.new('Shaun') }
-  subject(:jake) {Player.new('Jake') }
 
-  describe '#name' do
-    it 'returns the name' do
-      expect(shaun.name).to eq 'Shaun'
-      expect(jake.name).to eq 'Jake'
+  subject(:kat){described_class.new("Kat")}
+  subject(:pedro){described_class.new("Pedro")}
+
+  context '#get_name' do
+    it 'returns players name' do
+      expect(kat.name).to eq("Kat")
     end
   end
 
-  describe '#hp' do
-    it 'checks the default hp' do
-      expect(Player::DEFAULT_HP).to eq 110
-    end
-
-  describe '#dmg'
-    it 'gives damages to the player by 10' do
-      expect{ shaun.dmg }.to change { shaun.hp }.by(-10)
+  context '#deduct_points' do
+    it 'deducts points from itself' do
+      expect{ pedro.deduct_points }.to change{ pedro.points }.by(-10)
     end
   end
-
-  # describe '#attack' do
-  #   it 'attacks player and gives damages' do
-  #     expect(jake).to receive(:dmg)
-  #     shaun.attack(jake)
-  #   end
-  # end
 
 end

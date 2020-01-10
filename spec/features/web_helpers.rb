@@ -1,11 +1,13 @@
 def sign_in_and_play
-  visit('/')
-  fill_in :player_1_name, with: "Alicia"
-  fill_in :player_2_name, with: "Shaun"
+  visit("/")
+
+  fill_in "Player 1", with: "Jake"
+  fill_in "Player 2", with: "Other_jake"
+
   click_button "Submit"
 end
 
 def attack_and_confirm
-  click_button 'Attack'
-  click_button 'Attack back!'
-end 
+  click_button "Attack"
+  click_link "OK"
+end

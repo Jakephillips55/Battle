@@ -1,49 +1,38 @@
-require_relative 'player'
-
 class Game
-  attr_reader :player1, :player2, :current_turn
 
-  def initialize(player1, player2)
-    @players = [@player1 = player1, @player2 = player2]
-    @current_turn = player_1
+  @instance = nil
+
+  attr_reader :player_one, :player_two, :turns
+
+  def initialize(player_one, player_two)
+    @player_one = player_one
+    @player_two = player_two
+    @turns = {attacker: player_one, attacked: player_two}
+    self.class.instance = self
   end
 
-  def player_1
-    @players.first
+  def self.instance
+    @instance
   end
 
-  def player_2
-    @players.last
+  def self.instance=(something)
+    @instance = something
   end
 
-  def attack(player)
-    player.dmg
+  def attack
+    turns[:attacked].deduct_points
   end
 
-  def switch_turns
-    @current_turn = opponent_of(current_turn)
-  end
-
-  def opponent_of(the_player)
-    players_who_are_not(player1).first
+  def switch_turn
+    if turns[:attacker] == player_one
+      @turns = {attacker: player_two, attacked: player_one}
+    else
+      @turns = {attacker: player_one, attacked: player_two}
+    end
   end
 
   def game_over?
-    losing_players.any?
+    player_one.points <= 0 || player_two.points <= 0
   end
 
-  def loser
-    losing_players.first
-  end
-
-  private
-  attr_reader :players
-
-  def losing_players
-    players.select { |player| player.hp <= 0 }
-  end
-
-  def players_who_are_not(the_player)
-    players.select {|player| player != the_player }
-  end
 end

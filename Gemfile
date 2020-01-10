@@ -1,8 +1,12 @@
+source "https://rubygems.org"
+
 ruby '2.6.3'
 
-source 'https://rubygems.org'
-
-gem 'rspec'
 gem 'sinatra'
-gem 'shotgun'
+gem 'rspec-sinatra'
+gem 'rspec'
 gem 'capybara'
+gem 'shotgun'
+gem 'selenium-webdriver'
+gem 'simplecov'
+gem 'coveralls', require: false
